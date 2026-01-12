@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esthetic Furniture</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="title">
+        <div class="title-content">
+            <h1><a href="main.html">Esthetic Furniture</a></h1>
+            <p>Furniture designed to live in harmony</p>
+        </div>
+    </div>
+    
+    
+    <div class="main-image">
+        <img src="https://static.tildacdn.com/tild3731-6366-4262-a632-353735613362/mebel-dlya-doma.jpg" 
+             alt="Modern furniture collection">
+    </div>
+    
+    
+    <div class="info">
+        <div class="info-item">
+            <i class="fas fa-shipping-fast" style="font-size: 48px; color: #8B7355; margin-bottom: 20px;"></i>
+            <h3>Free Shipping</h3>
+            <p>Free delivery on all orders over $100. Fast and reliable shipping worldwide.</p>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-award" style="font-size: 48px; color: #8B7355; margin-bottom: 20px;"></i>
+            <h3>Quality Guarantee</h3>
+            <p>All our furniture comes with a 2-year warranty. We stand by our craftsmanship.</p>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-leaf" style="font-size: 48px; color: #8B7355; margin-bottom: 20px;"></i>
+            <h3>Sustainable Materials</h3>
+            <p>We use only eco-friendly, responsibly sourced materials in our production.</p>
+        </div>
+    </div>
+    
+    
+    <div class="product">
+        <div class="product-image">
+            <img src="https://www.trio.ru/upload/resize_cache/iblock/df8/1000_1000_1/a25p6wg9ejl77cup1euc99n9hgyna0f6.jpg" 
+                 alt="Wooden Chair">
+        </div>
+        <div class="product-info">
+            <h2 class="product-title">Wooden Chair</h2>
+            <div class="product-price">$50</div>
+            <p class="product-description">
+                Experience the perfect blend of comfort and elegance with our signature wooden chair. 
+                Crafted from sustainably sourced oak, this chair features an ergonomic design that 
+                supports your posture while adding a touch of natural beauty to any space.
+            </p>
+            <button class="buy-chair-button">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+    
+    <div class="product">
+        <div class="product-image">
+            <img src="https://avatars.mds.yandex.net/get-mpic/5234050/2a0000019030a9fa58a945c652b015cd71b3/orig" 
+                 alt="Wooden Table">
+        </div>
+        <div class="product-info">
+            <h2 class="product-title">Wooden Table</h2>
+            <div class="product-price">$100</div>
+            <p class="product-description">
+                Experience the perfect blend of comfort and elegance with our signature wooden table. 
+                Crafted from sustainably sourced oak, this table features an ergonomic design that 
+                supports your posture while adding a touch of natural beauty to any space.
+            </p>
+            <button class="buy-table-button">   
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+
+    <div class="end">
+        <div class="end-item">   
+            <h3>About</h3>
+            <p><a href="about-us.html">About us</a></p>
+            <p><a href="design.html">Design</a></p>
+        </div>
+        <div class="end-item">           
+            <h3>Help</h3>
+            <p><a href="faq.html">FAQ</a></p>
+        </div>
+        <div class="end-item">         
+            <h3>Contacts</h3>
+            <p>estheticfurniture@gmail.com</p>
+        </div>
+    </div>
+    
+    
+    <script>
+        
+        document.querySelector('.buy-chair-button').addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            const originalColor = this.style.backgroundColor;
+            
+            this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+            this.style.backgroundColor = '#27ae60';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.backgroundColor = originalColor;
+            }, 2000);
+        });
+        document.querySelector('.buy-table-button').addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            const originalColor = this.style.backgroundColor;
+            
+            this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+            this.style.backgroundColor = '#27ae60';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.backgroundColor = originalColor;
+            }, 2000);
+        });
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('.title, .main-image, .ad-bar, .product, .info').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

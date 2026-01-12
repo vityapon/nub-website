@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esthetic Furniture</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="title">
+        <div class="title-content">
+            <h1><a href="main.html">Esthetic Furniture</a></h1>
+            <p>Furniture designed to live in harmony</p>
+        </div>
+    </div>
+    
+    <div class="blank">
+        <h2 class="blank-title">Design</h2>
+            <p class="blank-description">
+                Every piece of wood has a story. We choose materials that tell a story of 
+                responsibility — FSC-certified oak, reclaimed teak, and linen from ethical 
+                mills. We don't just build furniture; we preserve ecosystems. 
+                Our finishes are water-based, our packaging is plastic-free, 
+                and our carbon footprint is measured and offset. Beauty should never cost the Earth.
+            </p>
+    </div>
+
+    <div class="end">
+        <div class="end-item">   
+            <h3>About</h3>
+            <p><a href="about-us.html">About us</a></p>
+            <p><a href="design.html">Design</a></p>
+        </div>
+        <div class="end-item">           
+            <h3>Help</h3>
+            <p><a href="faq.html">FAQ</a></p>
+        </div>
+        <div class="end-item">         
+            <h3>Contacts</h3>
+            <p>estheticfurniture@gmail.com</p>
+        </div>
+    </div>
+    
+    
+    <script>
+        
+        document.querySelector('.buy-chair-button').addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            const originalColor = this.style.backgroundColor;
+            
+            this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+            this.style.backgroundColor = '#27ae60';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.backgroundColor = originalColor;
+            }, 2000);
+        });
+        document.querySelector('.buy-table-button').addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            const originalColor = this.style.backgroundColor;
+            
+            this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+            this.style.backgroundColor = '#27ae60';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.backgroundColor = originalColor;
+            }, 2000);
+        });
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('.title, .main-image, .ad-bar, .product, .info').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esthetic Furniture</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="title">
+        <div class="title-content">
+            <h1><a href="main.html">Esthetic Furniture</a></h1>
+            <p>Furniture designed to live in harmony</p>
+        </div>
+    </div>
+    
+    <div class="blank">
+    <h2 class="blank-title">FAQ</h2>
+    <div class="faq-item">
+        <p class="faq-question">Q: Where is your furniture made?</p>
+        <p class="faq-answer">A: Every piece is handcrafted in our Russian, 
+        Ekaterinburg workshop by a team of 12 master artisans. 
+        We believe in slow, intentional craftsmanship and complete supply chain transparency.</p>
+
+        <p class="faq-question">Q: What materials do you use?</p>
+        <p class="faq-answer">A: We work exclusively with solid hardwoods (oak, walnut, maple), 
+            never particleboard or veneers. Our upholstery uses natural materials like linen, 
+            cotton, and leather from ethical sources. All finishes are water-based and non-toxic.</p>
+
+        <p class="faq-question">Q: Do you offer customization?</p>
+        <p class="faq-answer">A: Yes! We offer custom dimensions, wood types, finishes, 
+            and fabric choices for most pieces. Custom orders require 8-12 weeks for production. 
+            Contact our design team at estheticfurniture@gmail.com to begin.</p>
+    </div>
+</div>
+
+    <div class="end">
+        <div class="end-item">   
+            <h3>About</h3>
+            <p><a href="about-us.html">About us</a></p>
+            <p><a href="design.html">Design</a></p>
+        </div>
+        <div class="end-item">           
+            <h3>Help</h3>
+            <p><a href="faq.html">FAQ</a></p>
+        </div>
+        <div class="end-item">         
+            <h3>Contacts</h3>
+            <p>estheticfurniture@gmail.com</p>
+        </div>
+    </div>
+    
+    
+    <script>
+        
+        document.querySelector('.buy-chair-button').addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            const originalColor = this.style.backgroundColor;
+            
+            this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+            this.style.backgroundColor = '#27ae60';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.backgroundColor = originalColor;
+            }, 2000);
+        });
+        document.querySelector('.buy-table-button').addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            const originalColor = this.style.backgroundColor;
+            
+            this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+            this.style.backgroundColor = '#27ae60';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.backgroundColor = originalColor;
+            }, 2000);
+        });
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('.title, .main-image, .ad-bar, .product, .info').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
